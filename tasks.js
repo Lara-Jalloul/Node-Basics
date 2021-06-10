@@ -81,6 +81,11 @@ function quit(){
   process.exit();
 }
 
+/**
+* helps lists all the possible commands 
+*
+* @returns {void}
+*/
 function help(){
   console.log('Here are the possible commands: \n','quit\n','hello\n','help\n','list\n','remove\n','add\n','edit\n','check\n','uncheck\n')
   }
