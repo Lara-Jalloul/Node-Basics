@@ -38,6 +38,8 @@ function onDataReceived(text) {
   let cmdAdd = text.split(" ");
   let cmdRemove = text.split(" ");
   let cmdEdit = text.split(" ");
+  let cmdCheck = text.split(" ");
+  let cmdUnCheck = text.split(" ");
 
   if (text === 'quit\n' || text=='exit\n') {
     quit();
@@ -67,6 +69,16 @@ function onDataReceived(text) {
   }
   else if (cmdEdit[0] === "edit") {
     edit(text);
+  }
+  if (text === "check\n") {
+    console.log("error");
+  } else if (cmdCheck[0] === "check") {
+    check(cmdCheck[1]);
+  }
+  if (text === "uncheck\n") {
+    console.log("error");
+  } else if (cmdUnCheck[0] === "uncheck") {
+    uncheck(cmdUnCheck[1]);
   }
   else if(text === 'help\n'){
     help();
@@ -203,6 +215,15 @@ function edit(x) {
   } 
 }
 
+function check(y) {
+  done[y - 1] = "[✓]";
+  list();
+}
+
+function uncheck(x) {
+  done[x - 1] = "[ ]";
+  list();
+}
 
 // The following line starts the application
 startApp("Lara Jalloul")
