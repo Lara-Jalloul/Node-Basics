@@ -91,7 +91,17 @@ function quit(){
 * @returns {void}
 */
 function help(){
-  console.log('Here are the possible commands: \n','quit\n','hello\n','help\n','list\n','remove\n','add\n','edit\n','check\n','uncheck\n')
+  const hello = "display hello";
+  const extendHello = "handled empty spaces"
+  const quit = "quit the app "
+  const list = "list all the items"
+  const help = "display all the possible commands"
+  const remove = "remove the last item in the list"
+  const add ="Add a task"
+  const check = "Mark a task as done"
+  const uncheck = "Mark a task as pending"
+
+  console.log('Here are the possible commands: \nhello: '+ hello+ '\nextended hello: ' +extendHello+ '\nquit: '+quit+ '\nlist: '+list+ '\nhelp: '+help+ '\nremove: '+remove+ '\nadd: '+add+ '\ncheck: '+check+ '\nunchecked: '+uncheck+ '\n')
   }
 
 // The following line starts the application
