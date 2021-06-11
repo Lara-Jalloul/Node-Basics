@@ -164,6 +164,8 @@ function remove(q) {
     listt.splice(q - 1, 1);
     checked_unchecked.splice(q - 1, 1);
     list();
+  } else {
+    console.log("number doesn't exist");
   }
 }
 
