@@ -37,6 +37,7 @@ function onDataReceived(text) {
   let cmdHello = /hello/g;
   let cmdAdd = text.split(" ");
   let cmdRemove = text.split(" ");
+  let cmdEdit = text.split(" ");
 
   if (text === 'quit\n' || text=='exit\n') {
     quit();
@@ -48,7 +49,7 @@ function onDataReceived(text) {
     list();
   }
   else if(text === 'add\n'){
-    console.log('error, you shoould add a task after add')
+    console.log('error, you should add a task after add')
   }
   else if(cmdAdd[0] === 'add'){
     add(text);
@@ -60,6 +61,12 @@ function onDataReceived(text) {
   }
   else if(cmdRemove[0] === 'remove'){
     remove(cmdRemove[1]);
+  }
+  else if(text === 'edit\n'){
+    console.log('error, you should not write edit alone')
+  }
+  else if (cmdEdit[0] === "edit") {
+    edit(text);
   }
   else if(text === 'help\n'){
     help();
@@ -155,7 +162,7 @@ function add(res) {
 }
 
 /**
-* add a task in the list
+* remove a task in the list
 *
 * @returns {void}
 */
@@ -167,6 +174,32 @@ function remove(q) {
   } else {
     console.log("number doesn't exist");
   }
+}
+
+/**
+* edit a task in the list
+*
+* @returns {void}
+*/
+function edit(x) {
+  let w = x.split(" ");
+  w.shift();
+  let y = w[0];
+  if (isNaN(y)) {
+    let j = w.toString();
+    j = j.replace(/\,/g, " ");
+    j = j.replace("\n", "");
+    listt.pop();
+    listt.push(j);
+    list();
+  } else if (y <= listt.length && y > 0) {
+    w.shift();
+    let k = w.toString();
+    k = k.replace(/\,/g, " ");
+    k = k.replace("\n", "");
+    listt.splice(y - 1, 1, k);
+    list();
+  } 
 }
 
 
