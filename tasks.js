@@ -88,6 +88,25 @@ function onDataReceived(text) {
   }
 }
 
+const fs = require('fs');
+let array;
+let file;
+if(process.argv[2]){
+  file = process.argv[2]
+}
+else{
+  file = 'database.json'
+}
+try {
+    array = fs.readFileSync(file, 'utf8', function (err,data) {
+    if (err) {
+      return console.log(err);
+    }
+  });
+} catch (error) {
+  array= [];
+}
+if(array.length > 0){array = JSON.parse(array)}
 
 /**
  * prints "unknown command"
@@ -118,8 +137,13 @@ function unknownCommand(c){
  * @returns {void}
  */
 function quit(){
-  console.log('Quitting now, goodbye!')
+  fs.writeFile(file, JSON.stringify(listt,null,1), 'utf8', function (err){
+    if (err){
+        console.log(err); 
+    }
+  console.log('Saving and Quitting now, goodbye!')
   process.exit();
+  });
 }
 
 /**
@@ -140,7 +164,7 @@ function help(){
   const uncheck ="Uncheck a task"
 
   console.log('Here are the possible commands: \nhello: '+ hello+ '\nextended hello: ' +extendHello+ '\nquit: '+quit+ '\nlist: '+list+ '\nhelp: '+help+ '\nremove: '+remove+ '\nadd: '+add+ '\nEdit: '+edit+ '\nCheck: '+check+ '\nUncheck: '+uncheck+ '\n')
-  }
+}
 
 /**
 * list all the items
@@ -226,6 +250,8 @@ function uncheck(x) {
   done[x - 1] = "[ ]";
   list();
 }
+
+
 
 // The following line starts the application
 startApp("Lara Jalloul")
