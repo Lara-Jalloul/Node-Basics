@@ -34,11 +34,14 @@ function startApp(name){
  * @returns {void}
  */
 function onDataReceived(text) {
+  let cmdHello = /hello/g;
+
+
   if (text === 'quit\n' || text=='exit\n') {
     quit();
   }
-  else if(text === 'hello\n'){
-    hello();
+  else if(cmdHello.test(text)){
+    hello(text);
   }
   else if(text === 'help\n'){
     help();
@@ -64,10 +67,11 @@ function unknownCommand(c){
 /**
  * Says hello
  *
+ * @param  {string} r the text received
  * @returns {void}
  */
-function hello(){
-  console.log('hello!')
+ function hello(r){
+   console.log(r.trim()+ "!")
 }
 
 
