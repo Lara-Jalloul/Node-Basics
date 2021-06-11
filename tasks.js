@@ -135,9 +135,11 @@ function help(){
   const help = "display all the possible commands"
   const remove = "remove the last item in the list"
   const add ="Add a task"
-  
+  const edit ="Edit a task"
+  const check ="Check a task"
+  const uncheck ="Uncheck a task"
 
-  console.log('Here are the possible commands: \nhello: '+ hello+ '\nextended hello: ' +extendHello+ '\nquit: '+quit+ '\nlist: '+list+ '\nhelp: '+help+ '\nremove: '+remove+ '\nadd: '+add+ '\n')
+  console.log('Here are the possible commands: \nhello: '+ hello+ '\nextended hello: ' +extendHello+ '\nquit: '+quit+ '\nlist: '+list+ '\nhelp: '+help+ '\nremove: '+remove+ '\nadd: '+add+ '\nEdit: '+edit+ '\nCheck: '+check+ '\nUncheck: '+uncheck+ '\n')
   }
 
 /**
