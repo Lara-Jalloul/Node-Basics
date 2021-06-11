@@ -56,7 +56,7 @@ function onDataReceived(text) {
   }
   else if(text === 'remove\n'){
     listt.pop();
-    checked_unchecked.pop();
+    done.pop();
     list();
   }
   else if(cmdRemove[0] === 'remove'){
@@ -134,14 +134,14 @@ function help(){
 * @returns {void}
 */
 let listt = ["buy bread", "do the exercises"];
-let checked_unchecked = ["[ ]", "[✓]"];
+let done = ["[ ]", "[✓]"];
 let task=1;
 
 function list() {
  
   let i = 0;
     while (listt[i] != undefined) {
-      console.log(`${task} - ${checked_unchecked[i]} ${listt[i]}`);
+      console.log(`${task} - ${done[i]} ${listt[i]}`);
       i++;
       task++;
     }
@@ -157,7 +157,7 @@ function add(res) {
   l.shift();
   let j = l.toString();
   listt.push(j);
-  checked_unchecked.push("[✓]");
+  done.push("[✓]");
   list();
 
 }
@@ -170,7 +170,7 @@ function add(res) {
 function remove(q) {
   if (q <= listt.length && q > 0) {
     listt.splice(q - 1, 1);
-    checked_unchecked.splice(q - 1, 1);
+    done.splice(q - 1, 1);
     list();
   } else {
     console.log("number doesn't exist");
