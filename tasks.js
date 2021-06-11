@@ -43,6 +43,9 @@ function onDataReceived(text) {
   else if(cmdHello.test(text)){
     hello(text);
   }
+  else if(text ==='list\n'){
+    list();
+  }
   else if(text === 'help\n'){
     help();
   }
@@ -103,6 +106,23 @@ function help(){
 
   console.log('Here are the possible commands: \nhello: '+ hello+ '\nextended hello: ' +extendHello+ '\nquit: '+quit+ '\nlist: '+list+ '\nhelp: '+help+ '\nremove: '+remove+ '\nadd: '+add+ '\ncheck: '+check+ '\nunchecked: '+uncheck+ '\n')
   }
+
+/**
+* list all the items
+*
+* @returns {void}
+*/
+function list() {
+  let list = ["buy bread", "do the exercises"];
+  let checked_unchecked = ["[ ]", "[✓]"];
+  let task=1;
+  let i = 0;
+    while (list[i] != undefined) {
+      console.log(`${task} - ${checked_unchecked[i]} ${list[i]}`);
+      i++;
+      task++;
+    }
+}
 
 // The following line starts the application
 startApp("Lara Jalloul")
