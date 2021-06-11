@@ -153,9 +153,10 @@ function list() {
 * @returns {void}
 */
 function add(res) {
-  let l = res.split("");
+  let l = res.split(" ");
   l.shift();
-  listt.push(res);
+  let j = l.toString();
+  listt.push(j);
   checked_unchecked.push("[✓]");
   list();
 
