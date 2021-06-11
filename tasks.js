@@ -116,10 +116,9 @@ function help(){
   const help = "display all the possible commands"
   const remove = "remove the last item in the list"
   const add ="Add a task"
-  const check = "Mark a task as done"
-  const uncheck = "Mark a task as pending"
+  
 
-  console.log('Here are the possible commands: \nhello: '+ hello+ '\nextended hello: ' +extendHello+ '\nquit: '+quit+ '\nlist: '+list+ '\nhelp: '+help+ '\nremove: '+remove+ '\nadd: '+add+ '\ncheck: '+check+ '\nunchecked: '+uncheck+ '\n')
+  console.log('Here are the possible commands: \nhello: '+ hello+ '\nextended hello: ' +extendHello+ '\nquit: '+quit+ '\nlist: '+list+ '\nhelp: '+help+ '\nremove: '+remove+ '\nadd: '+add+ '\n')
   }
 
 /**
