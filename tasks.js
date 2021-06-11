@@ -36,6 +36,7 @@ function startApp(name){
 function onDataReceived(text) {
   let cmdHello = /hello/g;
   let cmdAdd = text.split(" ");
+  let cmdRemove = text.split(" ");
 
   if (text === 'quit\n' || text=='exit\n') {
     quit();
@@ -51,6 +52,14 @@ function onDataReceived(text) {
   }
   else if(cmdAdd[0] === 'add'){
     add(text);
+  }
+  else if(text === 'remove\n'){
+    listt.pop();
+    checked_unchecked.pop();
+    list();
+  }
+  else if(cmdRemove[0] === 'remove'){
+    remove(cmdRemove[1]);
   }
   else if(text === 'help\n'){
     help();
@@ -145,6 +154,20 @@ function add(res) {
   list();
 
 }
+
+/**
+* add a task in the list
+*
+* @returns {void}
+*/
+function remove(q) {
+  if (q <= listt.length && q > 0) {
+    listt.splice(q - 1, 1);
+    checked_unchecked.splice(q - 1, 1);
+    list();
+  }
+}
+
 
 // The following line starts the application
 startApp("Lara Jalloul")
