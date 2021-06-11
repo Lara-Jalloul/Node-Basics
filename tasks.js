@@ -35,7 +35,7 @@ function startApp(name){
  */
 function onDataReceived(text) {
   let cmdHello = /hello/g;
-
+  let cmdAdd = text.split(" ");
 
   if (text === 'quit\n' || text=='exit\n') {
     quit();
@@ -45,6 +45,12 @@ function onDataReceived(text) {
   }
   else if(text ==='list\n'){
     list();
+  }
+  else if(text === 'add\n'){
+    console.log('error, you shoould add a task after add')
+  }
+  else if(cmdAdd[0] === 'add'){
+    add(text);
   }
   else if(text === 'help\n'){
     help();
@@ -112,16 +118,32 @@ function help(){
 *
 * @returns {void}
 */
+let listt = ["buy bread", "do the exercises"];
+let checked_unchecked = ["[ ]", "[✓]"];
+let task=1;
+
 function list() {
-  let list = ["buy bread", "do the exercises"];
-  let checked_unchecked = ["[ ]", "[✓]"];
-  let task=1;
+ 
   let i = 0;
-    while (list[i] != undefined) {
-      console.log(`${task} - ${checked_unchecked[i]} ${list[i]}`);
+    while (listt[i] != undefined) {
+      console.log(`${task} - ${checked_unchecked[i]} ${listt[i]}`);
       i++;
       task++;
     }
+}
+
+/**
+* add a task in the list
+*
+* @returns {void}
+*/
+function add(res) {
+  let l = res.split("");
+  l.shift();
+  listt.push(res);
+  checked_unchecked.push("[✓]");
+  list();
+
 }
 
 // The following line starts the application
